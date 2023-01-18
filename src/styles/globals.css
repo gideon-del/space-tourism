@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -103,5 +103,39 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    letter-spacing: 2.7px;
+  }
+  .nav-glass span {
+    font-weight: 700;
+  }
+  .nav-list {
+    @apply flex gap-16 md:px-6 pl-6  uppercase font-normal md:flex-row flex-col  w-full;
+  }
+  .nav-list > * {
+    @apply md:border-b-4 md:hover:border-b-[rgba(255,255,255,0.5)] md:border-b-transparent cursor-pointer transition-all duration-150 ease-in-out md:border-r-0  border-r-2  hover:border-r-[rgba(255,255,255,0.5)] border-r-transparent w-full md:w-auto;
+  }
+  .letter-space {
+    letter-spacing: 4.7px;
+  }
+  .dim-white {
+    @apply text-[rgb(208,214,249)];
+  }
+  .home-text {
+    @apply leading-snug;
+    font-size: 50px;
   }
 }
