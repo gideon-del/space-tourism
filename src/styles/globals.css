@@ -188,11 +188,20 @@ a {
   }
   .technology {
     @apply grid;
+    grid-gap: var(--gap, 1rem);
     grid-template-areas:
       "title"
       "image"
       "number-tab"
       "content";
+  }
+  @media (min-width: 1024px) {
+    .technology {
+      @apply grid;
+      grid-template-areas:
+        ". title title ."
+        ". number-tab content image";
+    }
   }
   .technology-title {
     grid-area: title;
@@ -201,14 +210,14 @@ a {
     grid-area: image;
   }
   .technology-tab {
-    @apply flex items-center justify-center gap-4 my-3;
+    @apply flex items-center justify-center gap-4 my-3 lg:flex-col;
     grid-area: number-tab;
   }
   .technology-content {
     grid-area: content;
   }
   .technology-tab > * {
-    @apply w-8  tracking-wide text-center grid place-items-center  text-white rounded-full border border-[rgba(255,255,255,0.25)] text-base leading-5;
+    @apply w-8 lg:w-20 lg:text-[32px]  tracking-wide text-center grid place-items-center  text-white rounded-full border border-[rgba(255,255,255,0.25)] text-base leading-5;
     aspect-ratio: 1;
   }
   .technology-tab > .active {

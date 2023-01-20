@@ -3,6 +3,9 @@ import bgMobile from '../assets/technology/background-technology-mobile.jpg'
 import bgDesk from '../assets/technology/background-technology-desktop.jpg'
 import bgTablet from '../assets/technology/background-technology-tablet.jpg'
 import img from '../assets/technology/image-launch-vehicle-landscape.jpg'
+import imgPort from '../assets/technology/image-launch-vehicle-portrait.jpg'
+
+
 import { Bellefair, Barlow_Condensed, Barlow } from '@next/font/google'
 
 const bellefair = Bellefair({
@@ -29,12 +32,15 @@ const Technology = () => {
        <img src={bgDesk.src} className='w-full h-full object-center' />
 
       </picture>
-    <section className='technology'>
+    <section className='technology flex-1 w-screen'>
     <h1 className={`${barlow.variable} text-base tracking-md font-barlow font-normal technology-title text-white uppercase lg:text-3xl mb-6 md:text-start text-center `}><span className='font-bold text-[rgba(255,255,255,0.5)] lg:ml-12 '>03</span> SPACE LAUNCH 101</h1>
     <div className='technology-img'>
-  <img src={img.src} />
+        <picture>
+   <source srcSet={imgPort.src} media="(min-width: 1024px)" />
+  <img src={img.src} className='lg:max-w-[80%]' />
+        </picture>
     </div>
-    <div className='technology-content'>
+    <div className='technology-content lg:flex lg:flex-col lg:justify-center lg:gap-5'>
    
 
 <h2 className={`${bellefair.variable} font-belleFair text-[rgba(255,255,255,.5)] flex flex-col gap-1 uppercase font-normal text-base justify-center items-center md:text-2xl lg:justify-start lg:items-start`}> Mission Specialist
