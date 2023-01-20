@@ -1,13 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Bellefair, Barlow_Condensed } from '@next/font/google'
+import { Bellefair, Barlow_Condensed, Barlow } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import bgMobile from '../assets/home/background-home-mobile.jpg'
 import bgDesk from '../assets/home/background-home-desktop.jpg'
 import bgTablet from '../assets/home/background-home-tablet.jpg'
-import logo from '../assets/shared/logo.svg'
-import harmburger from '../assets/shared/icon-hamburger.svg'
-import close from '../assets/shared/icon-close.svg'
 
 
 import { useState } from 'react'
@@ -22,12 +19,14 @@ const barlow = Barlow_Condensed({
   weight:'400',
   variable:'--font-barlow'
 })
+ const normalBarlow = Barlow({
+  subsets:['latin'],
+  weight: '400',
+  variable:'--font-normalBarlow'
+})
 
 export default function Home() {
-  const [showNav,setShowNav] = useState(false)
-  const toggleNav = () => {
-    setShowNav(prev => !prev)
-  }
+  
   return (
     <>
       <Head>
@@ -36,40 +35,27 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-     <main className='w-screen h-screen  z-50 flex flex-col justify-between md:pb-24'>
       <picture className='fixed w-screen h-screen -z-10'>
        <source srcSet={bgMobile.src} media="(max-width: 600px)" />
        <source srcSet={bgTablet.src} media="(max-width: 1200px)" />
        <img src={bgDesk.src} className='w-full h-full object-center' />
 
       </picture>
-       <header className='flex justify-between items-center lg:container w-[98%] mb-6 ml-auto pt-8 px-4 gap-4'>
-        {/* Logo */}
-        <img src={logo.src} />
-        <img src={harmburger.src} className='md:hidden' onClick={toggleNav} />
-        <nav className={`nav-glass flex items-center justify-center  ${barlow.variable} font-barlow md:text-lg lg:text-xl text-base text-white md:relative fixed inset-y-0 right-0 md:w-auto w-3/4 md:h-auto z-50 ${showNav? 'translate-x-0' : 'translate-x-full'} md:translate-x-0 transition-all ease-linear py-4`} >
-          <ul className='nav-list'>
-            <li> <span>00</span> Home</li>
-            <li> <span>01</span> Destination</li>
-            <li> <span>02</span> Crew</li>
-            <li> <span>03</span> Technology</li>
-            
-          </ul>
-          <img src={close.src} className='md:hidden absolute w-7 h-7 top-2 right-5' onClick={toggleNav} />
-        </nav>
-       </header>
-       <section className={`${barlow.variable} font-barlow dim-white  text-3xl letter-space flex justify-between lg:items-end max-w-screen-lg lg:ml-16 px-6 flex-col lg:flex-row items-center gap-32 `}>
-        <div className='max-w-md  flex flex-col gap-4'>
+      
+       <section className={`${barlow.variable} font-barlow  lg:my-auto text-3xl  flex justify-between  lg:px-12 lg:ml-20 px-6 flex-col lg:flex-row items-center  lg:gap text-secondary pb-11 gap-20 flex-1 lg:items-center`}>
+        <div className='max-w-md  flex flex-col md:gap-6 flex-1'>
           
-        <h1 className={` text-base lg:items-start items-center letter-space uppercase flex flex-col gap-4`}>
-          so you want to travel to <br/>
-          <span className={`font-belleFair ${bellefair.variable} text-white lg:text-9xl md:text-8xl text-7xl`}>space</span>
+        <h1 className={` text-base lg:items-start items-center lg:text-300  uppercase flex flex-col lg:gap-6 gap-1  leading-md tracking-lg`}>
+        SO, YOU WANT TO TRAVEL TO <br/>
+          <span className={`font-belleFair ${bellefair.variable}  text-white lg:text-9xl md:text-8xl text-7xl lg:leading-lg leading-[150px]`}>space</span>
         </h1>
-        <p className={`home-text font-barlow ${barlow.variable} lg:text-lg md:text-base text-sm lg:leading-8 leading-5 lg:text-start text-center`}> Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
+        <p className={`home-text font-normalBarlw ${normalBarlow.variable} leading-sm  lg:text-lg md:text-base text-sm lg:leading-8 lg:text-start text-center lg:width-max ch `}> Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
         </div>
-        <div className={`lg:w-64 lg:h-64 w-40 h-40  bg-white rounded-full flex items-center justify-center text-tetiary font-belleFair ${bellefair.variable} lg:text-4xl text-xl uppercase cursor-pointer after:absolute relative after:w-52 after-h-52 lg:after:w-96 lg:after:h-96 after:bg-[rgba(255,255,255,0.5)] z-40 after:-z-20 after:rounded-full after:scale-50 hover:after:scale-100 transition-all ease-in-out duration-500`}>Explore</div>
+        <div className='flex-1 hidden lg:block'></div>
+        <div className={` ${bellefair.variable} large-btn flex-1`}>Explore</div>
+        <div className='hidden lg:block'></div>
        </section>
-      </main>
+
     </>
   )
 }

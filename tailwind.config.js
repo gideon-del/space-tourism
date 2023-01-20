@@ -7,13 +7,30 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        primary:'#0b0d17',
-        secondary:'#d0d6f9',
-        tetiary:'rgba(11, 13, 23, 1)'
+        primary:'rgba(11, 13, 23,1)',
+        secondary:'rgba(208, 214, 249, 1)',
+        tetiary:'rgba(11, 13, 23, 1)',
+        underline:'rgb(56, 59, 75)'
       },
       fontFamily:{
         belleFair:['var(--font-bellefair)', 'serif'],
-        barlow:['var(--font-barlow)','sans-serif']
+        barlow:['var(--font-barlow)','sans-serif'],
+        normalBarlw :['var(--font-normalBarlow)', 'serif']
+      },
+      fontSize:{
+        200:'3.5rem',
+        300:'1.75rem',
+        700:'6.25rem'
+      },
+      lineHeight:{
+        sm:'2rem',
+        md:'2.1rem',
+        lg:'10.74rem'
+      },
+      letterSpacing:{
+        sm:'2.35px',
+        md:'2.7px',
+        lg:'4.75px'
       }
     },
   },

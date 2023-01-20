@@ -110,12 +110,28 @@ a {
 @tailwind utilities;
 
 @layer components {
+  /* Layout */
+  .grid-home {
+    @apply grid w-screen grid-cols-1;
+    grid-template-rows: min-content 1fr;
+  }
+  .grid-home > *:not(:first-child) {
+    outline: 2px limegreen solid;
+  }
+  .grid-home .grid-container {
+    padding-bottom: max(6rem, 20vh);
+  }
+  .grid-container {
+    @apply grid h-full w-full;
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, 1fr) minmax(2rem, 1fr);
+    justify-content: center;
+  }
   .nav-glass {
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
     border: 1px solid rgba(255, 255, 255, 0.3);
     letter-spacing: 2.7px;
   }
@@ -126,7 +142,7 @@ a {
     @apply flex gap-16 md:px-6 pl-6  uppercase font-normal md:flex-row flex-col  w-full;
   }
   .nav-list > * {
-    @apply md:border-b-4 md:hover:border-b-[rgba(255,255,255,0.5)] md:border-b-transparent cursor-pointer transition-all duration-150 ease-in-out md:border-r-0  border-r-2  hover:border-r-[rgba(255,255,255,0.5)] border-r-transparent w-full md:w-auto;
+    @apply md:border-b-4 md:hover:border-b-[rgba(255,255,255,0.5)] md:border-b-transparent cursor-pointer transition-all duration-150 ease-in-out md:border-r-0  border-r-2  hover:border-r-[rgba(255,255,255,0.5)] border-r-transparent w-full md:w-auto md:py-4;
   }
   .letter-space {
     letter-spacing: 4.7px;
@@ -137,5 +153,65 @@ a {
   .home-text {
     @apply leading-snug;
     font-size: 50px;
+  }
+  .large-btn {
+    @apply bg-white rounded-full flex items-center justify-center text-tetiary font-belleFair lg:text-4xl text-xl uppercase cursor-pointer after:absolute relative after:w-full after:h-full after:opacity-0 after:bg-[rgba(255,255,255,0.1)] z-40 after:-z-20 after:rounded-full hover:after:scale-150 hover:after:opacity-100;
+    aspect-ratio: 1;
+    padding: 7vw;
+  }
+  .large-btn::after {
+    content: "";
+    transition: opacity 150ms linear, transform 350ms ease-in-out;
+  }
+  .width-max {
+    max-width: 444px;
+  }
+  .underline-text > * {
+    @apply pb-2 border-b-4 border-b-transparent;
+    cursor: pointer;
+    transition: all 250ms ease;
+  }
+  .underline-text > *:focus,
+  .underline-text > *:hover {
+    @apply border-b-[rgba(255,255,255,0.5)];
+  }
+  .dots {
+    @apply flex gap-4;
+  }
+  .dots > * {
+    @apply p-2 bg-[rgba(255,255,255,0.17)] hover:bg-[rgba(255,255,255,0.5)] focus:bg-[rgba(255,255,255,0.5)];
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+  .ch {
+    width: 45ch;
+  }
+  .technology {
+    @apply grid;
+    grid-template-areas:
+      "title"
+      "image"
+      "number-tab"
+      "content";
+  }
+  .technology-title {
+    grid-area: title;
+  }
+  .technology-img {
+    grid-area: image;
+  }
+  .technology-tab {
+    @apply flex items-center justify-center gap-4 my-3;
+    grid-area: number-tab;
+  }
+  .technology-content {
+    grid-area: content;
+  }
+  .technology-tab > * {
+    @apply w-8  tracking-wide text-center grid place-items-center  text-white rounded-full border border-[rgba(255,255,255,0.25)] text-base leading-5;
+    aspect-ratio: 1;
+  }
+  .technology-tab > .active {
+    @apply bg-white text-primary;
   }
 }
