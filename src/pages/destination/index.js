@@ -47,7 +47,7 @@ const Destination = () => {
             <p className={` border-b border-b-[rgba(56, 59, 75, 1)] page-description ${normalBarlow.variable}  pb-6 `} style={{
               '--max':'45ch' 
             }}>See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.</p>
-            <div className={`${barlow.variable} font-barlow flex lg:gap-8 md:gap-20 flex-col md:flex-row  gap-5 lg:gap-16`}>
+            <div className={`${barlow.variable} font-barlow flex lg:gap-16 md:gap-20 flex-col md:flex-row  gap-5 l`}>
                 <p className='uppercase text-secondary text-sm flex flex-col gap-3 items-center lg:items-start'>
                     avg. ditance
                     <span className={`${bellefair.variable} font-belleFair text-white lg:text-3xl text-300`}>384,400 km</span>

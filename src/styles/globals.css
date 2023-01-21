@@ -160,6 +160,9 @@ body {
     line-height: 1.7;
     max-inline-size: var(--max, 45ch);
   }
+  .nav-list > .active {
+    @apply md:border-b-4 md:border-b-white border-r-white border-r-4 md:border-r-0;
+  }
   .destination-layout {
     display: grid;
     grid-template-areas:
@@ -190,10 +193,7 @@ body {
   .destination-content {
     grid-area: content;
   }
-  .home-text {
-    @apply leading-snug;
-    font-size: 50px;
-  }
+
   .large-btn {
     @apply bg-white rounded-full flex items-center justify-center text-tetiary font-belleFair lg:text-4xl text-xl uppercase cursor-pointer after:absolute relative after:w-full after:h-full after:opacity-0 after:bg-[rgba(255,255,255,0.1)] z-40 after:-z-20 after:rounded-full hover:after:scale-150 hover:after:opacity-100;
     aspect-ratio: 1;
@@ -226,6 +226,10 @@ body {
     aspect-ratio: 1;
 
     border-radius: 50%;
+  }
+
+  .dots > *.active {
+    @apply bg-white p-2;
   }
   .ch {
     width: 45ch;
@@ -262,11 +266,25 @@ body {
     grid-area: image;
   }
   .crew-img img {
-    max-width: 60%;
+    max-width: 100%;
     margin-inline: auto;
   }
-
+  @media (min-width: 768px) and (max-width: 1023.999px) {
+    .crew {
+      grid-template-areas:
+        "title"
+        "content"
+        "dots"
+        "image";
+    }
+    .dots {
+      justify-content: center;
+    }
+  }
   @media (min-width: 1024px) {
+    .dots {
+      justify-content: flex-start;
+    }
     .technology {
       @apply grid;
 
