@@ -78,5 +78,11 @@ export const crew = data.crew.map((crew,i) => {
         images: crewImg[i].image
     }
 })
+export const destination = data.destinations.map((dest,i) => {
+    return {
+        ...dest,
+        images: destinationImg[i].image
+    }
+})
 
 export default data

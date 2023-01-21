@@ -2,10 +2,9 @@ import React, { useMemo, useState } from 'react'
 import bgMobile from '../../assets/crew/background-crew-mobile.jpg'
 import bgDesk from '../../assets/crew/background-crew-desktop.jpg'
 import bgTablet from '../../assets/crew/background-crew-tablet.jpg'
-import img from '../../assets/crew/image-mark-shuttleworth.png'
 import { Bellefair, Barlow_Condensed, Barlow } from '@next/font/google'
-import data from '@/data/data'
 import { crew } from '@/data/data'
+import Background from '@/components/Background'
 const bellefair = Bellefair({
     weight:['400'],
     subsets:['latin'],
@@ -22,7 +21,7 @@ const bellefair = Bellefair({
     variable:'--font-normalBarlow'
   })
 const Crew = () => {
-  const [currentMember, setCurrentMember] = useState(crew[3]);
+  const [currentMember, setCurrentMember] = useState(crew[0]);
   const button = useMemo(() => [1,2,3,4], []);
   const indexofCurrentMember = crew.findIndex(crw => crw.images.png === currentMember.images.png)
   console.log(indexofCurrentMember);
@@ -31,12 +30,7 @@ const Crew = () => {
   }
   return (
     <>
-    <picture className='fixed w-screen h-screen -z-10'>
-       <source srcSet={bgMobile.src} media="(max-width: 600px)" />
-       <source srcSet={bgTablet.src} media="(max-width: 1200px)" />
-       <img src={bgDesk.src} className='w-full h-full object-center' />
-
-      </picture>
+    <Background mobile={bgMobile} desk={bgDesk} tablet={bgTablet} />
     <section className='pb-6 lg:pb-0 crew flex-1'>
     <h1 className={`${barlow.variable} text-base tracking-md font-barlow font-normal text-white uppercase lg:text-3xl mb-6 md:text-start text-center crew-title `}><span className='font-bold text-[rgba(255,255,255,0.5)]'>02</span> meet your crew</h1>
   
@@ -55,7 +49,7 @@ const Crew = () => {
             </div>
         <div className='crew-img'>
 
-        <img src={currentMember.images.webp} className='max-w-[100%]'  />
+        <img src={currentMember.images.webp}  />
         </div>
       
     </section>

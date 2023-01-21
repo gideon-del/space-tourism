@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
   const toggleNav = () => {
     setShowNav(prev => !prev)
   }
-  console.log(router.pathname);
+  
   return <>
    <main className='w-full  min-h-screen  z-50 flex flex-col '>
       
