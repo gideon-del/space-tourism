@@ -18,10 +18,10 @@ export default function App({ Component, pageProps }) {
     setShowNav(prev => !prev)
   }
   return <>
-   <main className='w-screen h-screen  z-50 flex flex-col '>
+   <main className='w-full  min-h-screen  z-50 flex flex-col '>
       
-       <header className='flex justify-between items-center lg:container w-[98%] md:mb-6 ml-auto md:pt-8 pt-3 px-4 md:pr-0 gap-4' style={{flexBasis:'min-content'}}>
-        {/* Logo */}
+       <header className='flex justify-between items-center lg:container w-[98%] md:mb-6 ml-auto md:pt-8 pt-3 px-4 mb-5 md:pr-0 gap-4' style={{flexBasis:'min-content'}}>
+        
         <img src={logo.src} />
         <img src={harmburger.src} className='md:hidden' onClick={toggleNav} />
         <nav className={`nav-glass flex items-center justify-center  ${barlow.variable} font-barlow md:text-lg lg:text-xl text-base text-white md:relative fixed inset-y-0 right-0 md:w-auto w-3/4 md:h-auto z-50 ${showNav? 'translate-x-0' : 'translate-x-full'} md:translate-x-0 transition-all ease-linear py-4 md:py-0`} >

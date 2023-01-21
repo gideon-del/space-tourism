@@ -45,11 +45,11 @@ export default function Home() {
        <section className={`${barlow.variable} font-barlow  lg:my-auto text-3xl  flex justify-between  lg:px-12 lg:ml-20 px-6 flex-col lg:flex-row items-center  lg:gap text-secondary pb-11 gap-20 flex-1 lg:items-center`}>
         <div className='max-w-md  flex flex-col md:gap-6 flex-1'>
           
-        <h1 className={` text-base lg:items-start items-center lg:text-300  uppercase flex flex-col lg:gap-6 gap-1  leading-md tracking-lg`}>
+        <h1 className={` page-title text-secondary`}>
         SO, YOU WANT TO TRAVEL TO <br/>
           <span className={`font-belleFair ${bellefair.variable}  text-white lg:text-9xl md:text-8xl text-7xl lg:leading-lg leading-[150px]`}>space</span>
         </h1>
-        <p className={`home-text font-normalBarlw ${normalBarlow.variable} leading-sm  lg:text-lg md:text-base text-sm lg:leading-8 lg:text-start text-center lg:width-max ch `}> Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
+        <p className={`${normalBarlow.variable} page-description `}> Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
         </div>
         <div className='flex-1 hidden lg:block'></div>
         <div className={` ${bellefair.variable} large-btn flex-1`}>Explore</div>

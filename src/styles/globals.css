@@ -109,15 +109,16 @@ a {
 @tailwind components;
 @tailwind utilities;
 
+body {
+  min-height: 100vh;
+}
 @layer components {
   /* Layout */
   .grid-home {
     @apply grid w-screen grid-cols-1;
     grid-template-rows: min-content 1fr;
   }
-  .grid-home > *:not(:first-child) {
-    outline: 2px limegreen solid;
-  }
+
   .grid-home .grid-container {
     padding-bottom: max(6rem, 20vh);
   }
@@ -147,8 +148,47 @@ a {
   .letter-space {
     letter-spacing: 4.7px;
   }
-  .dim-white {
-    @apply text-[rgb(208,214,249)];
+  .page-title {
+    @apply uppercase text-center lg:text-start;
+    font-size: clamp(1rem, 2.5vw, 1.75rem);
+    letter-spacing: 4.7px;
+    line-height: 1.2;
+  }
+  .page-description {
+    @apply text-secondary text-center lg:text-start font-normalBarlw;
+    font-size: clamp(0.9rem, calc(5vw + 0.1rem), 1.13rem);
+    line-height: 1.7;
+    max-inline-size: var(--max, 45ch);
+  }
+  .destination-layout {
+    display: grid;
+    grid-template-areas:
+      "title"
+      "image"
+      "content";
+    place-items: center;
+    gap: 2rem 0.5rem;
+  }
+  @media (min-width: 64rem) {
+    .destination-layout {
+      display: grid;
+      grid-template-areas:
+        ". title title"
+        ". image content";
+      align-items: center;
+      justify-items: start;
+      gap: 2rem 0.5rem;
+    }
+  }
+  .destination-title {
+    grid-area: title;
+  }
+  .destination-img {
+    grid-area: image;
+    max-width: 80%;
+  }
+  .destination-content {
+    grid-area: content;
   }
   .home-text {
     @apply leading-snug;
@@ -177,10 +217,14 @@ a {
   }
   .dots {
     @apply flex gap-4;
+    grid-area: dots;
+    height: fit-content;
   }
   .dots > * {
     @apply p-2 bg-[rgba(255,255,255,0.17)] hover:bg-[rgba(255,255,255,0.5)] focus:bg-[rgba(255,255,255,0.5)];
+    max-width: 2rem;
     aspect-ratio: 1;
+
     border-radius: 50%;
   }
   .ch {
@@ -189,25 +233,81 @@ a {
   .technology {
     @apply grid;
     grid-gap: var(--gap, 1rem);
+
     grid-template-areas:
       "title"
       "image"
       "number-tab"
       "content";
   }
+
+  .crew {
+    display: grid;
+    gap: 2rem;
+
+    grid-template-areas:
+      "title"
+      "image"
+      "dots"
+      "content";
+  }
+  .crew-title {
+    grid-area: title;
+  }
+  .crew-info {
+    grid-area: content;
+  }
+  .crew-img {
+    @apply md:border-b-0 border-b border-b-underline;
+    grid-area: image;
+  }
+  .crew-img img {
+    max-width: 60%;
+    margin-inline: auto;
+  }
+
   @media (min-width: 1024px) {
     .technology {
       @apply grid;
+
+      max-width: 100%;
+      grid-template-columns: minmax(1rem, 2rem) minmax(1rem, 10rem) 50ch minmax(
+          0,
+          1fr
+        );
+      /* padding-inline: 1rem;
+       */
+
       grid-template-areas:
-        ". title title ."
+        ". title title title"
         ". number-tab content image";
+      justify-items: center;
+    }
+    .crew {
+      grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+          1rem,
+          1fr
+        );
+      grid-template-areas:
+        ". title  image ."
+        ". content image ."
+        ". dots image .";
+    }
+    .crew-img {
+      align-self: end;
     }
   }
   .technology-title {
     grid-area: title;
+    justify-self: stretch;
   }
   .technology-img {
     grid-area: image;
+    margin-left: auto;
+    padding-bottom: 2rem;
+  }
+  .technology-img > picture {
+    max-width: 100%;
   }
   .technology-tab {
     @apply flex items-center justify-center gap-4 my-3 lg:flex-col;

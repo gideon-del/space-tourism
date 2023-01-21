@@ -33,11 +33,11 @@ const Technology = () => {
 
       </picture>
     <section className='technology flex-1 w-screen'>
-    <h1 className={`${barlow.variable} text-base tracking-md font-barlow font-normal technology-title text-white uppercase lg:text-3xl mb-6 md:text-start text-center `}><span className='font-bold text-[rgba(255,255,255,0.5)] lg:ml-12 '>03</span> SPACE LAUNCH 101</h1>
+    <h1 className={`${barlow.variable} text-base tracking-md font-barlow font-normal technology-title text-white uppercase lg:text-3xl mb-6 md:text-start text-center `}><span className='font-bold text-[rgba(255,255,255,0.5)]'>03</span> SPACE LAUNCH 101</h1>
     <div className='technology-img'>
         <picture>
    <source srcSet={imgPort.src} media="(min-width: 1024px)" />
-  <img src={img.src} className='lg:max-w-[80%]' />
+  <img src={img.src} className='' />
         </picture>
     </div>
     <div className='technology-content lg:flex lg:flex-col lg:justify-center lg:gap-5'>
