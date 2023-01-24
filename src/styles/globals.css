@@ -224,6 +224,7 @@ body {
     @apply flex gap-4;
     grid-area: dots;
     height: fit-content;
+    justify-content: center;
   }
   .dots > * {
     @apply p-2 bg-[rgba(255,255,255,0.17)] hover:bg-[rgba(255,255,255,0.5)] focus:bg-[rgba(255,255,255,0.5)];
@@ -237,7 +238,7 @@ body {
     @apply bg-white p-2;
   }
   .ch {
-    width: 45ch;
+    max-width: 45ch;
   }
   .technology {
     @apply grid;
@@ -271,7 +272,7 @@ body {
     grid-area: image;
   }
   .crew-img img {
-    max-width: 100%;
+    max-width: 60%;
     margin-inline: auto;
   }
   @media (min-width: 768px) and (max-width: 1023.999px) {
@@ -282,8 +283,8 @@ body {
         "dots"
         "image";
     }
-    .dots {
-      justify-content: center;
+    .crew-img {
+      align-self: end;
     }
   }
   @media (min-width: 1024px) {
@@ -304,7 +305,8 @@ body {
       grid-template-areas:
         ". title title title"
         ". number-tab content image";
-      justify-items: center;
+      justify-items: start;
+      align-items: center;
     }
     .crew {
       grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
@@ -319,6 +321,14 @@ body {
     .crew-img {
       align-self: end;
     }
+    .crew-img img {
+      align-self: end;
+
+      max-width: 100%;
+    }
+    .technology-img {
+      justify-self: end;
+    }
   }
   .technology-title {
     grid-area: title;
@@ -326,7 +336,6 @@ body {
   }
   .technology-img {
     grid-area: image;
-    margin-left: auto;
     padding-bottom: 2rem;
   }
   .technology-img > picture {

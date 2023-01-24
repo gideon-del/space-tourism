@@ -15,62 +15,90 @@ import anoushenPng from '../assets/crew/image-anousheh-ansari.png'
 import anoushenWebp from '../assets/crew/image-anousheh-ansari.webp'
 import victorPng from '../assets/crew/image-victor-glover.png'
 import victorWebp from '../assets/crew/image-victor-glover.webp'
-
+import launchPort from '../assets/technology/image-launch-vehicle-portrait.jpg'
+import launchLand from '../assets/technology/image-launch-vehicle-landscape.jpg'
+import spaceCapPort from '../assets/technology/image-space-capsule-portrait.jpg'
+import spaceCapLand from '../assets/technology/image-space-capsule-landscape.jpg'
+import spacePort from '../assets/technology/image-spaceport-portrait.jpg'
+import spaceLand from '../assets/technology/image-spaceport-landscape.jpg'
 
 const crewImg= [
     {
     image:{
-        png: douglasPng.src,
-        webp: douglasWebp.src
+        png: douglasPng,
+        webp: douglasWebp
     }
 },
     {
     image:{
-        png: markPng.src,
-        webp: markWebp.src
+        png: markPng,
+        webp: markWebp
     }
 },
     {
     image:{
-        png: victorPng.src,
-        webp: victorWebp.src
+        png: victorPng,
+        webp: victorWebp
     }
 },
     {
     image:{
-        png: anoushenPng.src,
-        webp: anoushenWebp.src
+        png: anoushenPng,
+        webp: anoushenWebp
     }
 },
 ]
 const destinationImg = [{
     image:{
-        png: moonPng.src,
-        webp: moonWebp.src
+        png: moonPng,
+        webp: moonWebp
     }
 },
     {
 
         image:{
-            png: marsPng.src,
-            webp: marsWebp.src
+            png: marsPng,
+            webp: marsWebp
         },
 
     },
     {
 
         image:{
-            png: europaPng.src,
+            png: europaPng,
             webp: europaWebp.src
         },
     },
     {
 
         image:{
-            png: titanPng.src,
-            webp: titanWebp.src
+            png: titanPng,
+            webp: titanWebp
         },
     },
+]
+const technologyImg = [
+    {
+
+    image:{
+        portrait: launchPort,
+        landscape: launchLand,
+    }
+},
+    {
+
+    image:{
+        portrait: spaceCapPort,
+        landscape: spaceCapLand,
+    }
+},
+    {
+
+    image:{
+        portrait: spacePort,
+        landscape: spaceLand,
+    }
+}
 ]
 export const crew = data.crew.map((crew,i) => {
     return {
@@ -84,5 +112,9 @@ export const destination = data.destinations.map((dest,i) => {
         images: destinationImg[i].image
     }
 })
+export const technology = data.technology.map((tech,i) => ({
+    ...tech,
+    images: technologyImg[i].image
+}))
 
 export default data

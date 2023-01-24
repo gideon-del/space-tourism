@@ -26,7 +26,7 @@ const barlow = Barlow_Condensed({
   variable:'--font-normalBarlow'
 })
 
-export default function Home() {
+export default function Home({bg}) {
   
   return (
     <>
@@ -36,7 +36,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Background mobile={bgMobile} desk={bgDesk} tablet={bgTablet} />
+      <Background mobile={bg.mobile} desk={bg.desk} tablet={bg.tablet} />
       
        <section className={`${barlow.variable} font-barlow  lg:my-auto text-3xl  flex justify-between  lg:px-12 lg:ml-20 px-6 flex-col lg:flex-row items-center  lg:gap text-secondary pb-11 gap-20 flex-1 lg:items-center`}>
         <div className='max-w-md  flex flex-col md:gap-6 flex-1'>
@@ -54,4 +54,16 @@ export default function Home() {
 
     </>
   )
+}
+export const getStaticProps = () => {
+  const prop = {
+    bg:{
+      tablet: bgTablet,
+      desk: bgDesk,
+      mobile: bgMobile,
+    }
+  }
+  return {
+    props: prop
+  }
 }

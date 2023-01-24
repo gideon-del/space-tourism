@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Background = ({ mobile, tablet, desk }) => {
@@ -5,7 +6,11 @@ const Background = ({ mobile, tablet, desk }) => {
     <picture className="fixed w-screen h-screen -z-10">
       <source srcSet={mobile.src} media="(max-width: 600px)" />
       <source srcSet={tablet.src} media="(max-width: 1200px)" />
-      <img src={desk.src} className="w-full h-full object-center" />
+      <img
+        src={desk.src}
+        className="w-full h-full object-center"
+        alt="Destination"
+      />
     </picture>
   );
 };
