@@ -22,6 +22,7 @@ import spaceCapLand from '../assets/technology/image-space-capsule-landscape.jpg
 import spacePort from '../assets/technology/image-spaceport-portrait.jpg'
 import spaceLand from '../assets/technology/image-spaceport-landscape.jpg'
 
+
 const crewImg= [
     {
     image:{

@@ -7,20 +7,28 @@ import { Bellefair, Barlow_Condensed } from '@next/font/google'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import background from '@/data/background'
+import Background from '@/components/Background'
 
 const barlow = Barlow_Condensed({
   subsets:['latin'],
   weight:'400',
   variable:'--font-barlow'
 })
+
 export default function App({ Component, pageProps }) {
-  const router = useRouter()
+  const router = useRouter();
+  const path = router.pathname.split('/')[1]
+  const bg = path ? background[path] : background.home
   const [showNav,setShowNav] = useState(false)
   const toggleNav = () => {
     setShowNav(prev => !prev)
   }
   
+  
   return <>
+  <Background mobile={bg.mobile} tablet={bg.tablet} desk={bg.desk}>
+
    <main className='w-full  min-h-screen  z-50 flex flex-col '>
       
        <header className='flex justify-between items-center lg:container w-[98%] md:mb-6 ml-auto md:pt-8 pt-3 px-4 mb-5 md:pr-0 gap-4 header'>
@@ -57,6 +65,7 @@ export default function App({ Component, pageProps }) {
        </header>
        <Component {...pageProps} />
       </main>
+  </Background>
   
   </>
 }

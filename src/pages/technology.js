@@ -13,7 +13,6 @@ const Technology = () => {
    const {barlow, bellefair,normalBarlow } = fonts
   return (
     <>
-     <Background mobile={bgMobile} desk={bgDesk} tablet={bgTablet} />
     <section className='technology flex-1 w-full'>
     <h1 className={`${barlow.variable} text-base tracking-md font-barlow font-normal technology-title text-white uppercase lg:text-3xl mb-6 md:text-start text-center `}><span className='font-bold text-[rgba(255,255,255,0.5)]'>03</span> SPACE LAUNCH 101</h1>
     <div className='technology-img'>

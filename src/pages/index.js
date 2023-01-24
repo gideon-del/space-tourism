@@ -1,33 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Bellefair, Barlow_Condensed, Barlow } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import bgMobile from '../assets/home/background-home-mobile.jpg'
-import bgDesk from '../assets/home/background-home-desktop.jpg'
-import bgTablet from '../assets/home/background-home-tablet.jpg'
+import useChangeCurrent from '@/hooks/useChangeCurrent'
 
-
-import { useState } from 'react'
-import Background from '@/components/Background'
-
-const bellefair = Bellefair({
-  weight:'400',
-  subsets:['latin'],
-  variable:'--font-bellefair'
-})
-const barlow = Barlow_Condensed({
-  subsets:['latin'],
-  weight:'400',
-  variable:'--font-barlow'
-})
- const normalBarlow = Barlow({
-  subsets:['latin'],
-  weight: '400',
-  variable:'--font-normalBarlow'
-})
-
-export default function Home({bg}) {
-  
+export default function Home() {
+   const {fonts} = useChangeCurrent();
+   const {normalBarlow,bellefair,barlow} = fonts
   return (
     <>
       <Head>
@@ -36,7 +12,6 @@ export default function Home({bg}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Background mobile={bg.mobile} desk={bg.desk} tablet={bg.tablet} />
       
        <section className={`${barlow.variable} font-barlow  lg:my-auto text-3xl  flex justify-between home  lg:px-12 lg:ml-20 px-6 flex-col lg:flex-row items-center  lg:gap text-secondary gap-20 flex-1 lg:items-end `}>
         <div className='max-w-md  flex flex-col md:gap-6 flex-1'>
@@ -54,16 +29,4 @@ export default function Home({bg}) {
 
     </>
   )
-}
-export const getStaticProps = () => {
-  const prop = {
-    bg:{
-      tablet: bgTablet,
-      desk: bgDesk,
-      mobile: bgMobile,
-    }
-  }
-  return {
-    props: prop
-  }
 }

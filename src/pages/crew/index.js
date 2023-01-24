@@ -1,9 +1,6 @@
 import  { useMemo,  } from 'react'
-import bgMobile from '../../assets/crew/background-crew-mobile.jpg'
-import bgDesk from '../../assets/crew/background-crew-desktop.jpg'
-import bgTablet from '../../assets/crew/background-crew-tablet.jpg'
+
 import { crew } from '@/data/data'
-import Background from '@/components/Background'
 import useChangeCurrent from '@/hooks/useChangeCurrent'
 import Image from 'next/image'
 const Crew = ({images}) => {
@@ -15,7 +12,7 @@ const Crew = ({images}) => {
     <>
    
 
-    <Background mobile={bgMobile} desk={bgDesk} tablet={bgTablet} />
+
     <section className='pb-6 lg:pb-0 crew flex-1'>
     <h1 className={`${barlow.variable} text-base tracking-md font-barlow font-normal text-white uppercase lg:text-3xl mb-6 md:text-start text-center crew-title `}><span className='font-bold text-[rgba(255,255,255,0.5)]'>02</span> meet your crew</h1>
   

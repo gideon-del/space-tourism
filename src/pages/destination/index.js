@@ -1,13 +1,10 @@
 import React, { useMemo, useState } from 'react'
-import bgMobile from '../../assets/destination/background-destination-mobile.jpg'
-import bgDesk from '../../assets/destination/background-destination-desktop.jpg'
-import bgTablet from '../../assets/destination/background-destination-tablet.jpg'
-import Background from '@/components/Background'
+
 import Image from 'next/image'
 import { destination } from '@/data/data'
 import useChangeCurrent from '@/hooks/useChangeCurrent'
 
-const Destination = ({images, bg}) => {
+const Destination = ({images}) => {
 
    const destinations = useMemo(() => ['Moon','Mars','Europa','Titan']);
  
@@ -16,7 +13,7 @@ const Destination = ({images, bg}) => {
   return (
     <>
   
-    <Background mobile={bg.mobile} tablet={bg.tablet} desk={bg.desk} />
+   
 
     <section className={`${barlow.variable} font-barlow pb-7 px-4 destination-layout flex-1 `}>
         <h1 className={`${barlow.variable} page-title text-white destination-title`}><span className='font-bold text-[rgba(255,255,255,0.5)]'>01</span> Pick your Destination</h1>
@@ -52,11 +49,6 @@ const Destination = ({images, bg}) => {
 export const getStaticProps = () => {
   const prop = {
     images: destination,
-    bg:{
-      tablet: bgTablet,
-      desk: bgDesk,
-      mobile: bgMobile,
-    }
   }
   return {
     props: prop
