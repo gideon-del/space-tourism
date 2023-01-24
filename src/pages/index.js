@@ -2,7 +2,7 @@ import Head from 'next/head'
 import useChangeCurrent from '@/hooks/useChangeCurrent'
 
 export default function Home() {
-   const {fonts} = useChangeCurrent();
+   const {fonts} = useChangeCurrent(['not-needed']);
    const {normalBarlow,bellefair,barlow} = fonts
   return (
     <>

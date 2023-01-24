@@ -19,7 +19,7 @@ const Destination = ({images}) => {
         <h1 className={`${barlow.variable} page-title text-white destination-title`}><span className='font-bold text-[rgba(255,255,255,0.5)]'>01</span> Pick your Destination</h1>
 
         
-         <Image src={current.images.png} className='destination-img'   />
+         <Image src={current.images.png} className='destination-img' alt={current.name}  />
          <div className='flex flex-col gap-6 lg:items-start items-center destination-content'>
             <nav>
                 <ul className='destination-tab'>
