@@ -113,6 +113,9 @@ body {
   min-height: 100vh;
 }
 @layer components {
+  .home {
+    padding: max(6rem, 20vh);
+  }
   /* Layout */
   .grid-home {
     @apply grid w-screen grid-cols-1;
@@ -132,7 +135,7 @@ body {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(1rem);
-    -webkit-backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(3rem);
     border: 1px solid rgba(255, 255, 255, 0.3);
     letter-spacing: 2.7px;
   }
@@ -200,6 +203,7 @@ body {
     @apply bg-white rounded-full flex items-center justify-center text-tetiary font-belleFair lg:text-4xl text-xl uppercase cursor-pointer after:absolute relative after:w-full after:h-full after:opacity-0 after:bg-[rgba(255,255,255,0.1)] z-40 after:-z-20 after:rounded-full hover:after:scale-150 hover:after:opacity-100;
     aspect-ratio: 1;
     padding: 7vw;
+    max-width: 15ch;
   }
   .large-btn::after {
     content: "";

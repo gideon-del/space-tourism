@@ -38,7 +38,7 @@ export default function Home({bg}) {
       </Head>
       <Background mobile={bg.mobile} desk={bg.desk} tablet={bg.tablet} />
       
-       <section className={`${barlow.variable} font-barlow  lg:my-auto text-3xl  flex justify-between  lg:px-12 lg:ml-20 px-6 flex-col lg:flex-row items-center  lg:gap text-secondary pb-11 gap-20 flex-1 lg:items-center`}>
+       <section className={`${barlow.variable} font-barlow  lg:my-auto text-3xl  flex justify-between home  lg:px-12 lg:ml-20 px-6 flex-col lg:flex-row items-center  lg:gap text-secondary gap-20 flex-1 lg:items-end `}>
         <div className='max-w-md  flex flex-col md:gap-6 flex-1'>
           
         <h1 className={` page-title text-secondary`}>
